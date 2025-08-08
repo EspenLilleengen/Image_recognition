@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+        <title>Drawing Canvas App</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="controls">
+                <div class="control-group">
+                    <label for="canvas-width">Width:</label>
+                    <input type="number" id="canvas-width" value="500" min="100" max="1200">
+                    <label for="canvas-height">Height:</label>
+                    <input type="number" id="canvas-height" value="500" min="100" max="1200">
+                    <button id="resize-btn">Resize Canvas</button>
+                </div>
+                <div class="control-group">
+                    <label for="brush-size">Brush Size:</label>
+                    <input type="range" id="brush-size" min="1" max="50" value="5">
+                    <span id="brush-size-value">5</span>
+                </div>
+                <div class="control-group">
+                    <label for="color-picker">Color:</label>
+                    <input type="color" id="color-picker" value="#000000">
+                </div>
+                <div class="control-group">
+                    <button id="clear-btn">Clear Canvas</button>
+                    <button id="download-btn">Download</button>
+                </div>
+            </div>
+            <div class="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+        <script src="canvas.js"></script>
+    </body>
+</html>     
+

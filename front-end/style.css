@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.controls {
+    background: #f8f9fa;
+    padding: 20px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.control-group label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 60px;
+}
+
+.control-group input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.control-group input[type="range"] {
+    width: 100px;
+}
+
+.control-group input[type="color"] {
+    width: 50px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.control-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+#resize-btn {
+    background: #007bff;
+    color: white;
+}
+
+#resize-btn:hover {
+    background: #0056b3;
+}
+
+#clear-btn {
+    background: #dc3545;
+    color: white;
+}
+
+#clear-btn:hover {
+    background: #c82333;
+}
+
+#download-btn {
+    background: #28a745;
+    color: white;
+}
+
+#download-btn:hover {
+    background: #218838;
+}
+
+#brush-size-value {
+    font-weight: 600;
+    color: #495057;
+    min-width: 20px;
+}
+
+.canvas-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    background: #f8f9fa;
+}
+
+#canvas {
+    border: 3px solid #333;
+    /* border-radius: 8px; */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: #fff;
+    cursor: crosshair;
+    transition: all 0.3s ease;
+}
+
+#canvas:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .control-group {
+        justify-content: center;
+    }
+    
+    .canvas-container {
+        padding: 10px;
+    }
+}
