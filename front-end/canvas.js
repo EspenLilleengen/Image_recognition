@@ -15,13 +15,13 @@ window.addEventListener("load", () => {
     // Drawing variables
     let painting = false;
     let brushSize = 5;
-    let brushColor = "#000000";
+    let brushColor = "#ffffff";
     
     // Initialize canvas size
     function initializeCanvas() {
         canvas.width = parseInt(canvasWidthInput.value);
         canvas.height = parseInt(canvasHeightInput.value);
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "black";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
     
@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
     function resizeCanvas() {
         canvas.width = parseInt(canvasWidthInput.value);
         canvas.height = parseInt(canvasHeightInput.value);
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "black";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
     
@@ -71,7 +71,7 @@ window.addEventListener("load", () => {
     
     // Clear canvas function
     function clearCanvas() {
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "black";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
     
