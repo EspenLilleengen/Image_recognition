@@ -42,6 +42,7 @@ print(f'\nTest accuracy: {test_acc}')
 
 # Save the model in the same directory if accuracy is above 98%
 if (test_acc > 0.98):
-    model.save('my_model.keras')
+    model.save('back-end/my_model.keras')  # Save to parent directory (root of project)
+    print("Model saved successfully!")
 else:
     print("Model accuracy is below 98%, not saving the model.")
