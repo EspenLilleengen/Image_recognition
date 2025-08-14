@@ -11,10 +11,11 @@ window.addEventListener("load", () => {
     const colorPicker = document.querySelector("#color-picker");
     const clearBtn = document.querySelector("#clear-btn");
     const downloadBtn = document.querySelector("#download-btn");
+    const classifyBtn = document.querySelector("#classify-btn");
     
     // Drawing variables
     let painting = false;
-    let brushSize = 5;
+    let brushSize = brushSizeValue.textContent;
     let brushColor = "#ffffff";
     
     // Initialize canvas size
@@ -83,6 +84,83 @@ window.addEventListener("load", () => {
         link.click();
     }
     
+    // Classify canvas function
+    async function classifyCanvas() {
+        try {
+            // Show loading state
+            classifyBtn.textContent = "Classifying...";
+            classifyBtn.disabled = true;
+            
+            // Get canvas data as base64
+            const dataUrl = canvas.toDataURL();
+            
+            // Send to backend
+            const response = await fetch('http://localhost:8000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ data_url: dataUrl })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const result = await response.json();
+            
+            if (result.error) {
+                throw new Error(result.error);
+            }
+            
+            // Display result
+            displayClassificationResult(result);
+            
+        } catch (error) {
+            console.error('Classification error:', error);
+            alert(`Classification failed: ${error.message}`);
+        } finally {
+            // Reset button state
+            classifyBtn.textContent = "Classify";
+            classifyBtn.disabled = false;
+        }
+    }
+    
+    // Display classification result
+    function displayClassificationResult(result) {
+        // Remove existing result display
+        const existingResult = document.querySelector('.classification-result');
+        if (existingResult) {
+            existingResult.remove();
+        }
+        
+        // Create result display
+        const resultDiv = document.createElement('div');
+        resultDiv.className = 'classification-result';
+        resultDiv.innerHTML = `
+            <h3>Classification Result</h3>
+            <p><strong>Predicted Digit:</strong> ${result.digit}</p>
+            <div class="probabilities">
+                <h4>Probabilities:</h4>
+                <div class="prob-bars">
+                    ${result.probs.map((prob, index) => `
+                        <div class="prob-item">
+                            <span class="digit">${index}</span>
+                            <div class="prob-bar">
+                                <div class="prob-fill" style="width: ${(prob * 100).toFixed(1)}%"></div>
+                            </div>
+                            <span class="prob-value">${(prob * 100).toFixed(1)}%</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        
+        // Insert after canvas
+        const canvasContainer = document.querySelector('.canvas-container');
+        canvasContainer.appendChild(resultDiv);
+    }
+    
     // Event listeners for drawing
     canvas.addEventListener("mousedown", startPosition);
     canvas.addEventListener("mouseup", finishedPosition);
@@ -93,6 +171,7 @@ window.addEventListener("load", () => {
     resizeBtn.addEventListener("click", resizeCanvas);
     clearBtn.addEventListener("click", clearCanvas);
     downloadBtn.addEventListener("click", downloadCanvas);
+    classifyBtn.addEventListener("click", classifyCanvas);
     
     // Update brush size display and value
     brushSizeInput.addEventListener("input", () => {

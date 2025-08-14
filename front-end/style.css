@@ -135,6 +135,82 @@ body {
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
+/* Classification Result Styles */
+.classification-result {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid #e9ecef;
+}
+
+.classification-result h3 {
+    color: #495057;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.classification-result p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+.classification-result .probabilities h4 {
+    color: #495057;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.prob-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prob-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+}
+
+.prob-item .digit {
+    font-weight: bold;
+    color: #495057;
+    min-width: 20px;
+    text-align: center;
+}
+
+.prob-bar {
+    flex: 1;
+    height: 20px;
+    background: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.prob-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.prob-value {
+    font-weight: 600;
+    color: #495057;
+    min-width: 50px;
+    text-align: right;
+}
+
 @media (max-width: 768px) {
     .controls {
         flex-direction: column;
@@ -147,5 +223,21 @@ body {
     
     .canvas-container {
         padding: 10px;
+    }
+    
+    .classification-result {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .prob-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+    }
+    
+    .prob-item .digit,
+    .prob-item .prob-value {
+        text-align: center;
     }
 }

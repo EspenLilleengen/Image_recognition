@@ -27,6 +27,9 @@ def test_with_sample_image():
     img.save(buffer, format='PNG')
     img_str = base64.b64encode(buffer.getvalue()).decode()
     
+    #view the image
+    img.show()
+    
     # Test the API
     test_api_call(img_str, "Sample '1' image")
 

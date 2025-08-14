@@ -10,12 +10,6 @@ import matplotlib.pyplot as plt
 train_images = train_images / 255.0
 test_images = test_images / 255.0   
 
-# View an example image
-# plt.imshow(train_images[0], cmap='gray')
-# plt.title(f"Label: {train_labels[0]}")
-# plt.axis('off')
-# plt.show()
-
 # Define the model architecture
 model= keras.Sequential([
     keras.layers.Flatten(input_shape=(28, 28)),
