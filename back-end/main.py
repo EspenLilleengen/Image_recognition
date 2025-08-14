@@ -72,7 +72,12 @@ async def predict(request: Request):
 
         # Predict
         preds = model.predict(img_array, verbose=0)  # Suppress verbose output
-        probs = preds[0].tolist()
+        
+        # Convert logits to probabilities using softmax
+        logits = preds[0]
+        exp_logits = np.exp(logits - np.max(logits))  # Subtract max for numerical stability
+        probs = (exp_logits / np.sum(exp_logits)).tolist()
+        
         predicted = int(np.argmax(probs))
 
         return {"digit": predicted, "probs": probs}

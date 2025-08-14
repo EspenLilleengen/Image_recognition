@@ -74,6 +74,18 @@ window.addEventListener("load", () => {
     function clearCanvas() {
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Clear classification results
+        clearClassificationResults();
+    }
+    
+    // Clear classification results function
+    function clearClassificationResults() {
+        const predictedDigit = document.querySelector("#predicted-digit");
+        const probBars = document.querySelector("#prob-bars");
+        
+        predictedDigit.textContent = "Draw a digit and click Classify";
+        probBars.innerHTML = "";
     }
     
     // Download canvas function
@@ -128,37 +140,23 @@ window.addEventListener("load", () => {
     
     // Display classification result
     function displayClassificationResult(result) {
-        // Remove existing result display
-        const existingResult = document.querySelector('.classification-result');
-        if (existingResult) {
-            existingResult.remove();
-        }
+        // Update existing result display elements
+        const predictedDigit = document.querySelector("#predicted-digit");
+        const probBars = document.querySelector("#prob-bars");
         
-        // Create result display
-        const resultDiv = document.createElement('div');
-        resultDiv.className = 'classification-result';
-        resultDiv.innerHTML = `
-            <h3>Classification Result</h3>
-            <p><strong>Predicted Digit:</strong> ${result.digit}</p>
-            <div class="probabilities">
-                <h4>Probabilities:</h4>
-                <div class="prob-bars">
-                    ${result.probs.map((prob, index) => `
-                        <div class="prob-item">
-                            <span class="digit">${index}</span>
-                            <div class="prob-bar">
-                                <div class="prob-fill" style="width: ${(prob * 100).toFixed(1)}%"></div>
-                            </div>
-                            <span class="prob-value">${(prob * 100).toFixed(1)}%</span>
-                        </div>
-                    `).join('')}
+        // Update predicted digit
+        predictedDigit.innerHTML = `<strong>Predicted Digit:</strong> ${result.digit}`;
+        
+        // Update probability bars
+        probBars.innerHTML = result.probs.map((prob, index) => `
+            <div class="prob-item">
+                <span class="digit">${index}</span>
+                <div class="prob-bar">
+                    <div class="prob-fill" style="width: ${(prob * 100).toFixed(1)}%"></div>
                 </div>
+                <span class="prob-value">${(prob * 100).toFixed(1)}%</span>
             </div>
-        `;
-        
-        // Insert after canvas
-        const canvasContainer = document.querySelector('.canvas-container');
-        canvasContainer.appendChild(resultDiv);
+        `).join('');
     }
     
     // Event listeners for drawing

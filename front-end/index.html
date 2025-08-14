@@ -19,8 +19,8 @@
                 </div>
                 <div class="control-group">
                     <label for="brush-size">Brush Size:</label>
-                    <input type="range" id="brush-size" min="1" max="50" value="6">
-                    <span id="brush-size-value">6</span>
+                    <input type="range" id="brush-size" min="1" max="50" value="10">
+                    <span id="brush-size-value">10</span>
                 </div>
                 <div class="control-group">
                     <label for="color-picker">Color:</label>
@@ -32,8 +32,22 @@
                     <button id="classify-btn">Classify</button>
                 </div>
             </div>
-            <div class="canvas-container">
-                <canvas id="canvas"></canvas>
+            <div class="main-content">
+                <div class="canvas-container">
+                    <canvas id="canvas"></canvas>
+                </div>
+                <div class="results-container">
+                    <div class="classification-result" id="classification-result">
+                        <h3>Classification Result</h3>
+                        <p id="predicted-digit">Draw a digit and click Classify</p>
+                        <div class="probabilities" id="probabilities">
+                            <h4>Probabilities:</h4>
+                            <div class="prob-bars" id="prob-bars">
+                                <!-- Probability bars will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <script src="canvas.js"></script>

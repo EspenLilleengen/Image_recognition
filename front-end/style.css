@@ -115,13 +115,27 @@ body {
     min-width: 20px;
 }
 
-.canvas-container {
+.main-content {
+    display: flex;
+    gap: 20px;
     padding: 20px;
+    background: #f8f9fa;
+}
+
+.canvas-container {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 600px;
     background: #f8f9fa;
+}
+
+.results-container {
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 #canvas {
@@ -137,12 +151,11 @@ body {
 
 /* Classification Result Styles */
 .classification-result {
-    margin-top: 20px;
-    padding: 20px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border: 2px solid #e9ecef;
+    padding: 20px;
 }
 
 .classification-result h3 {
@@ -221,12 +234,22 @@ body {
         justify-content: center;
     }
     
+    .main-content {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .results-container {
+        flex: none;
+        width: 100%;
+    }
+    
     .canvas-container {
         padding: 10px;
     }
     
     .classification-result {
-        margin: 10px;
+        margin: 10px 0;
         padding: 15px;
     }
     
