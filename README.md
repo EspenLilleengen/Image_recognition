@@ -1,6 +1,7 @@
 # Image Recognition - MNIST Digit Classifier
 
-A web-based MNIST digit classifier that allows users to draw digits on a canvas and get real-time predictions using a trained neural network. This project demonstrates the complete pipeline from training a deep learning model to deploying it as a web application.
+A web-based MNIST digit classifier that allows users to draw digits on a canvas and get real-time predictions using a trained neural network. This project is my first full-stack application and is still a work-in-progress, hopefully you will be able to try out the application from a website soon;)
+
 
 ## 🏗️ Project Structure
 
