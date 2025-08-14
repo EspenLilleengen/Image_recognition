@@ -15,7 +15,7 @@ app = FastAPI()
 # Try to load model from different possible locations
 MODEL_PATHS = [
     "my_model.keras",  # Root directory
-    "back-end/my_model.keras",  # Back-end subdirectory
+    "back-end/best_model.keras",  # Back-end subdirectory
     "../my_model.keras"  # Parent directory
 ]
 
@@ -69,6 +69,9 @@ async def predict(request: Request):
         image = image.resize((28, 28))
         img_array = np.array(image).astype("float32") / 255.0
         img_array = img_array.reshape(1, 28, 28, 1)
+
+        #view image for debugging
+        #image.show()  # Uncomment this line to view the image during debugging
 
         # Predict
         preds = model.predict(img_array, verbose=0)  # Suppress verbose output
