@@ -1,3 +1,6 @@
+#TODO: Remove when done with development
+hide.md
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -206,5 +209,4 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-#TODO: Remove when done with development
-hide.md
+
