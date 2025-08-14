@@ -84,7 +84,7 @@ cd data/MNIST/raw
 ### Using the Web Interface
 
 1. **Open the frontend:**
-   - Navigate to `front-end/index.html` in your web browser
+   - Navigate to `http://127.0.0.1:5500/front-end/index.html` in your web browser
    - Or serve it using a local web server
 
 2. **Drawing Interface:**
