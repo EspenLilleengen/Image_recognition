@@ -154,10 +154,12 @@ python test_api.py
 
 ## Future Enhancements
 
+- Website accesible application
 - Real-time prediction as you draw
 - Support for different drawing styles
 - Model retraining interface
 - Export/import functionality for drawings
-- Multi-digit recognition 
+- Multi-digit recognition
+- More confident percentages 
 
 
