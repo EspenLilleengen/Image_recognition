@@ -1,6 +1,3 @@
-#TODO: Remove when done with development
-hide.md
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
