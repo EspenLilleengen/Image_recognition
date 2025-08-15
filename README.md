@@ -86,6 +86,7 @@ cd data/MNIST/raw
    ```
 
 ### Using the Web Interface
+-Uncomment the localhost link in config.js
 
 1. **Open the frontend:**
    - Navigate to `http://127.0.0.1:5500/front-end/index.html` in your web browser
