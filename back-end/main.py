@@ -17,7 +17,7 @@ MODEL_PATHS = [
     "my_model.keras",  # Root directory
     "best_model.keras",  # Back-end subdirectory
     "back-end/best_model.keras",  # Back-end subdirectory
-    "../my_model.keras"  # Parent directory
+    "back-end/my_model.keras"  # Parent directory
 ]
 
 model = None
