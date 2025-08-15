@@ -11,7 +11,6 @@ window.addEventListener("load", () => {
     const brushSizeInput = document.querySelector("#brush-size");
     const brushSizeValue = document.querySelector("#brush-size-value");
     const colorPicker = document.querySelector("#color-picker");
-    const bgColorPicker = document.querySelector("#bg-color-picker");
     const clearBtn = document.querySelector("#clear-btn");
     const downloadBtn = document.querySelector("#download-btn");
     const classifyBtn = document.querySelector("#classify-btn");
@@ -20,7 +19,7 @@ window.addEventListener("load", () => {
     let painting = false;
     let brushSize = brushSizeValue.textContent;
     let brushColor = colorPicker.value;
-    let backgroundColor = bgColorPicker.value;
+    const backgroundColor = "#000000"; // Always black
 
     // Initialize canvas size
     function initializeCanvas() {
@@ -82,14 +81,6 @@ window.addEventListener("load", () => {
         // Clear classification results
         clearClassificationResults();
     }
-    
-    // Change background color function
-    function changeBackgroundColor() {
-        backgroundColor = bgColorPicker.value;
-        ctx.fillStyle = backgroundColor;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
-    
     // Clear classification results function
     function clearClassificationResults() {
         const predictedDigit = document.querySelector("#predicted-digit");
@@ -192,9 +183,6 @@ window.addEventListener("load", () => {
     colorPicker.addEventListener("input", () => {
         brushColor = colorPicker.value;
     });
-    
-    // Update background color
-    bgColorPicker.addEventListener("input", changeBackgroundColor);
     
     // Initialize canvas on load
     initializeCanvas();
