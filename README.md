@@ -1,7 +1,7 @@
 # Image Recognition - MNIST Digit Classifier
 
 Check out the application [here](https://espenlilleengen.github.io/Image_recognition/).
-Front-end is hosted on Github pages, while back-end is hosted on Render.
+Front-end is hosted on Github pages, while back-end is hosted on Render. Since Back-end is hosted on a free version of Render it mat take some time (up to 50 seconds) to get a classification after sending the first request. 
 
 A web-based MNIST digit classifier that allows users to draw digits on a canvas and get real-time predictions using a trained neural network. This project is my first full-stack application and is still a work-in-progress.
 
