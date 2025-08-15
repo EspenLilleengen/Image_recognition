@@ -1,3 +1,5 @@
+import config from "./config.js";
+
 window.addEventListener("load", () => {
     const canvas = document.querySelector("#canvas");
     const ctx = canvas.getContext("2d");
@@ -116,7 +118,7 @@ window.addEventListener("load", () => {
             const dataUrl = canvas.toDataURL();
             
             // Send to backend
-            const response = await fetch('http://localhost:8000/predict', {
+            const response = await fetch(`${config.API_BASE_URL}/predict`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
